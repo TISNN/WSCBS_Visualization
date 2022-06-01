@@ -17,13 +17,15 @@ def gender(source: str) -> str:
             data = pd.read_csv(f"train.csv")
         elif source == "test":
             data = pd.read_csv(f"test.csv")
+        elif source == "EDA":
+            data = pd.read_csv(f"data_for_visual.csv")
         else:
             return f"Source Error"
 
         sns.barplot(x="Sex", y="Survived", data=data)
         plt.savefig(f"/data/gender_{source}.png")
         plt.close("all")
-        return "Figure saved to \"/data/gender{source}.png\""
+        return "Successful! Figure saved to \"/data/gender{source}.png\""
     except IOError as e:
         return f"ERROR: {e} ({e.errno})"
 
@@ -73,7 +75,7 @@ def pclass(source: str) -> str:
         
         plt.savefig(f"/data/pclass_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/pclass{source}.png\""
+        return "Successful! Figure saved to \"/data/pclass{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -88,7 +90,7 @@ def Ticket(source: str) -> str:
         sns.barplot(x='Ticket_Class', y='Survived', data=data)
         plt.savefig(f"/data/Ticket_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/Ticket{source}.png\""
+        return "Successful! Figure saved to \"/data/Ticket{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -110,7 +112,7 @@ def Title(source: str) -> str:
 
         plt.savefig(f"/data/Title_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/Title{source}.png\""
+        return "Successful! Figure saved to \"/data/Title{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -154,7 +156,7 @@ def Correlation(source: str) -> str:
         plt.savefig(f"/data/Correlation_{source}.png")
         plt.close()
 
-        return "Figure saved to \"/data/Correlation{source}.png\""
+        return "Successful! Figure saved to \"/data/Correlation{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
