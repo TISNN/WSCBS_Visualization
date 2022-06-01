@@ -1,3 +1,5 @@
+# ref: https://www.kaggle.com/code/subinium/awesome-visualization-with-titanic-dataset
+
 #!/usr/bin/env python3
 
 import os
@@ -13,19 +15,8 @@ import seaborn as sns
 
 def gender(source: str) -> str:
     try:
-        if source == "train":
+        if source == "EDA":
             data = pd.read_csv(f"train.csv")
-        elif source == "test":
-            data = pd.read_csv(f"test.csv")
-<<<<<<< HEAD:code.py
-#        elif source == "after":
-#            data = pd.read_csv(f"data_for_visual.csv",error_bad_lines=False)
-=======
-        elif source == "EDA":
-            data = pd.read_csv(f"data_for_visual.csv")
->>>>>>> 10958247b9182599a2a9962ea36777981711c31f:visual/code.py
-        else:
-            return f"Source Error"
 
         sns.barplot(x="Sex", y="Survived", data=data)
         plt.savefig(f"/data/gender_{source}.png")
@@ -36,7 +27,7 @@ def gender(source: str) -> str:
 
 def pclass(source: str) -> str:
     try:
-        data = pd.read_csv(f"{source}.csv")
+        data = pd.read_csv(f"train.csv")
 
         sns.color_palette(sns.color_palette("PuBu", 2))
 
@@ -86,7 +77,7 @@ def pclass(source: str) -> str:
 
 def Ticket(source: str) -> str:
     try:
-        data = pd.read_csv(f"{source}.csv")
+        data = pd.read_csv(f"train.csv")
 
         data['Ticket'].value_counts()
 
@@ -101,7 +92,7 @@ def Ticket(source: str) -> str:
 
 def Title(source: str) -> str:
     try:
-        data = pd.read_csv(f"{source}.csv")
+        data = pd.read_csv(f"train.csv")
 
         # Name processing
         # Title Feature(New)
@@ -123,7 +114,7 @@ def Title(source: str) -> str:
 
 def Correlation(source: str) -> str:
     try:
-        data = pd.read_csv(f"{source}.csv")
+        data = pd.read_csv(f"train.csv")
 
         data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
         data['Embarked'] = data['Embarked'].fillna('S')
