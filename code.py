@@ -17,8 +17,8 @@ def gender(source: str) -> str:
             data = pd.read_csv(f"train.csv")
         elif source == "test":
             data = pd.read_csv(f"test.csv")
-        elif source == "EDA":
-            data = pd.read_csv(f"data_for_visual.csv",lineterminator='\n')
+#        elif source == "after":
+#            data = pd.read_csv(f"data_for_visual.csv",error_bad_lines=False)
         else:
             return f"Source Error"
 
