@@ -17,13 +17,18 @@ def gender(source: str) -> str:
             data = pd.read_csv(f"train.csv")
         elif source == "test":
             data = pd.read_csv(f"test.csv")
+<<<<<<< HEAD:code.py
 #        elif source == "after":
 #            data = pd.read_csv(f"data_for_visual.csv",error_bad_lines=False)
+=======
+        elif source == "EDA":
+            data = pd.read_csv(f"data_for_visual.csv")
+>>>>>>> 10958247b9182599a2a9962ea36777981711c31f:visual/code.py
         else:
             return f"Source Error"
 
         sns.barplot(x="Sex", y="Survived", data=data)
-        plt.savefig(f"gender_{source}.png")
+        plt.savefig(f"/data/gender_{source}.png")
         plt.close("all")
         return "Figure saved to \"/data/gender{source}.png\""
     except IOError as e:
@@ -75,7 +80,7 @@ def pclass(source: str) -> str:
         
         plt.savefig(f"/data/pclass_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/pclass{source}.png\""
+        return "Successful! Figure saved to \"/data/pclass{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -90,7 +95,7 @@ def Ticket(source: str) -> str:
         sns.barplot(x='Ticket_Class', y='Survived', data=data)
         plt.savefig(f"/data/Ticket_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/Ticket{source}.png\""
+        return "Successful! Figure saved to \"/data/Ticket{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -112,7 +117,7 @@ def Title(source: str) -> str:
 
         plt.savefig(f"/data/Title_{source}.png")
         plt.close()
-        return "Figure saved to \"/data/Title{source}.png\""
+        return "Successful! Figure saved to \"/data/Title{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
@@ -156,7 +161,7 @@ def Correlation(source: str) -> str:
         plt.savefig(f"/data/Correlation_{source}.png")
         plt.close()
 
-        return "Figure saved to \"/data/Correlation{source}.png\""
+        return "Successful! Figure saved to \"/data/Correlation{source}.png\""
     except:
         return f"Error: {e} ({e.errno})"
 
