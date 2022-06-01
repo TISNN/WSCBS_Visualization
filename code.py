@@ -25,7 +25,7 @@ def gender(source: str) -> str:
         sns.barplot(x="Sex", y="Survived", data=data)
         plt.savefig(f"/data/gender_{source}.png")
         plt.close("all")
-        return "Successful! Figure saved to \"/data/gender{source}.png\""
+        return "Figure saved to \"/data/gender{source}.png\""
     except IOError as e:
         return f"ERROR: {e} ({e.errno})"
 
