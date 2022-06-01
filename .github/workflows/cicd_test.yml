@@ -63,8 +63,12 @@ jobs:
         run: |
           brane build container.yml
           brane list
+      
+      - name: Show brane package list
+        run: |
+          brane list
 
       - name: Import visualization package
         shell: bash
         run: |
-          brane run --data ./data file.txt
+          brane run --data ./data test.txt
