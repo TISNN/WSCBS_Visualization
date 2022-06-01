@@ -8,6 +8,8 @@ files:
 - code.py
 - train.csv
 - test.csv
+- data_for_visual.csv
+
 # Defines the file to call whenever a function is called
 entrypoint:
   kind: task
