@@ -62,7 +62,6 @@ jobs:
       - name: Build the brane package
         run: |
           brane build container.yml
-          brane list
       
       - name: Show brane package list
         run: |

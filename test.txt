@@ -1,2 +1,2 @@
 import visual;
-print(pclass("EDA"));
+print(Ticket("EDA"));
