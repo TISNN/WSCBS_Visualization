@@ -1,5 +1,3 @@
-# ref: https://www.kaggle.com/code/subinium/awesome-visualization-with-titanic-dataset
-
 #!/usr/bin/env python3
 
 import os
@@ -11,23 +9,43 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-# The function
 
+# Generate "Survived Passenger Gender Distribution" Plot
 def gender(source: str) -> str:
     try:
+        ### alterative for pytest
+        file_path = "/data"
+        if source[:3] == "py_":
+            file_path = "./data"
+            source = source[3:]
+
+        ## Load data
         if source == "EDA":
-            data = pd.read_csv(f"train.csv")
+            data = pd.read_csv(f"{file_path}/data_for_visual.csv")
+        else:
+            return "Error, please enter correct source. It should be <EDA>"
 
         sns.barplot(x="Sex", y="Survived", data=data)
-        plt.savefig(f"/data/gender_{source}.png")
-        plt.close("all")
-        return "Figure saved to \"/data/gender{source}.png\""
+        plt.savefig(f"{file_path}/gender_{source}.png")
+        plt.close()
+        return f"Successful! Figure saved to \"{file_path}/gender_{source}.png\""
     except IOError as e:
         return f"ERROR: {e} ({e.errno})"
 
+# Generate "Survived Passenger P-Class Distribution" Plot
 def pclass(source: str) -> str:
     try:
-        data = pd.read_csv(f"train.csv")
+        ### alterative for pytest
+        file_path = "/data"
+        if source[:3] == "py_":
+            file_path = "./data"
+            source = source[3:]
+
+        ## Load data
+        if source == "EDA":
+            data = pd.read_csv(f"{file_path}/data_for_visual.csv")
+        else:
+            return "Error, please enter correct source. It should be <EDA>"
 
         sns.color_palette(sns.color_palette("PuBu", 2))
 
@@ -67,32 +85,55 @@ def pclass(source: str) -> str:
         fig.text(0.13, 0.81, "Surivial distribution by Pclass in Titanic", fontweight="bold", fontfamily='serif',
                  fontsize=16)
 
+        plt.savefig(f"{file_path}/pclass_{source}.png")
         plt.show()
-        
-        plt.savefig(f"/data/pclass_{source}.png")
         plt.close()
-        return "Successful! Figure saved to \"/data/pclass{source}.png\""
-    except:
+        return f"Successful! Figure saved to \"{file_path}/pclass_{source}.png\""
+    except Exception as e:
         return f"Error: {e} ({e.errno})"
 
+
+# Generate "Survived Passenger Ticket fee Distribution" Plot
 def Ticket(source: str) -> str:
     try:
-        data = pd.read_csv(f"train.csv")
+        ### alterative for pytest
+        file_path = "/data"
+        if source[:3] == "py_":
+            file_path = "./data"
+            source = source[3:]
+
+        ## Load data
+        if source == "EDA":
+            data = pd.read_csv(f"{file_path}/data_for_visual.csv")
+        else:
+            return "Error, please enter correct source. It should be <EDA>"
 
         data['Ticket'].value_counts()
 
         Ticket_Count = dict(data['Ticket'].value_counts())
         data['Ticket_Class'] = data['Ticket'].apply(lambda x: Ticket_Count[x])
         sns.barplot(x='Ticket_Class', y='Survived', data=data)
-        plt.savefig(f"/data/Ticket_{source}.png")
+        plt.savefig(f"{file_path}/Ticket_{source}.png")
         plt.close()
-        return "Successful! Figure saved to \"/data/Ticket{source}.png\""
-    except:
+        return f"Successful! Figure saved to \"{file_path}/Ticket_{source}.png\""
+    except Exception as e:
         return f"Error: {e} ({e.errno})"
 
+
+# Generate "Survived Passenger Title Distribution" Plot
 def Title(source: str) -> str:
     try:
-        data = pd.read_csv(f"train.csv")
+        ### alterative for pytest
+        file_path = "/data"
+        if source[:3] == "py_":
+            file_path = "./data"
+            source = source[3:]
+
+        ## Load data
+        if source == "EDA":
+            data = pd.read_csv(f"{file_path}/data_for_visual.csv")
+        else:
+            return "Error, please enter correct source. It should be <EDA>"
 
         # Name processing
         # Title Feature(New)
@@ -106,15 +147,27 @@ def Title(source: str) -> str:
 
         sns.barplot(x="Title", y="Survived", data=data)
 
-        plt.savefig(f"/data/Title_{source}.png")
+        plt.savefig(f"{file_path}/Title_{source}.png")
         plt.close()
-        return "Successful! Figure saved to \"/data/Title{source}.png\""
-    except:
+        return f"Successful! Figure saved to \"{file_path}/Title_{source}.png\""
+    except Exception as e:
         return f"Error: {e} ({e.errno})"
 
+
+# Generate "Correlation Heatmap" Plot
 def Correlation(source: str) -> str:
     try:
-        data = pd.read_csv(f"train.csv")
+        ### alterative for pytest
+        file_path = "/data"
+        if source[:3] == "py_":
+            file_path = "./data"
+            source = source[3:]
+
+        ## Load data
+        if source == "EDA":
+            data = pd.read_csv(f"{file_path}/data_for_visual.csv")
+        else:
+            return "Error, please enter correct source. It should be <EDA>"
 
         data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
         data['Embarked'] = data['Embarked'].fillna('S')
@@ -147,13 +200,12 @@ def Correlation(source: str) -> str:
         ax.spines['top'].set_visible(True)
 
         plt.tight_layout()
+        plt.savefig(f"{file_path}/Correlation_{source}.png")
         plt.show()
-
-        plt.savefig(f"/data/Correlation_{source}.png")
         plt.close()
 
-        return "Successful! Figure saved to \"/data/Correlation{source}.png\""
-    except:
+        return f"Successful! Figure saved to \"{file_path}/Correlation_{source}.png\""
+    except Exception as e:
         return f"Error: {e} ({e.errno})"
 
 
