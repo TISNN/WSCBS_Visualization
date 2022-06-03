@@ -1,6 +1,6 @@
-[![DOI](https://zenodo.org/badge/498507875.svg)](https://zenodo.org/badge/latestdoi/498507875)
-
 # WSCBS_Assignment4b_brane_Visualization
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6612441.svg)](https://doi.org/10.5281/zenodo.6612441)
 
 This implementation is the visualization part of Titanic Project ([Machine Learning from Disaster](https://www.kaggle.com/c/titanic/overview)).
 
